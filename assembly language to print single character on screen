@@ -1,0 +1,23 @@
+ORG 100h           
+MOV AH, 09h        
+LEA DX, inputMsg   
+INT 21h            
+MOV AH, 01h        
+INT 21h 
+MOV DL, AL 
+mov Cl,Dl          
+LEA DX, outputMsg 
+MOV AH, 09h        
+INT 21h            
+MOV DL, CL         
+MOV AH, 02h        
+INT 21h 
+JMP endprogram           
+
+endprogram:
+MOV AH, 4Ch       
+INT 21h            
+
+inputMsg DB 'Enter a character: $'  
+outputMsg DB 0Dh, 0Ah, 'Entered character: $'       
+END
